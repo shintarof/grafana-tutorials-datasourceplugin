@@ -44,7 +44,9 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
 
       //2.Add the values to the data frame:
       for (let t = 0; t < duration; t += step) {
-        frame.add({ time: from + t, value: Math.sin((2 * Math.PI * t) / duration) });
+        //1.In the query method, use the frequency property to adjust our equation.
+        frame.add({ time: from + t, value: Math.sin((2 * Math.PI * query.frequency * t) / duration) });
+
       }
 
       //3.Return the data frame:
