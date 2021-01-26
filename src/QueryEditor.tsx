@@ -23,9 +23,19 @@ export class QueryEditor extends PureComponent<Props> {
     onRunQuery();
   };
 
+  //2. Add a event listener for the new property.
+  onFrequencyChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { onChange, query, onRunQuery } = this.props;
+    onChange({ ...query, frequency: parseFloat(event.target.value) });
+    // executes the query
+    onRunQuery();
+  };
+  
   render() {
     const query = defaults(this.props.query, defaultQuery);
-    const { queryText, constant } = query;
+    //1.Add a new form field to the query editor to control the new frequency property.
+    const { queryText, constant, frequency } = query;
+
 
     return (
       <div className="gf-form">
@@ -43,6 +53,13 @@ export class QueryEditor extends PureComponent<Props> {
           onChange={this.onQueryTextChange}
           label="Query Text"
           tooltip="Not used yet"
+        />
+        <FormField
+          width={4}
+          value={frequency}
+          onChange={this.onFrequencyChange}
+          label="Frequency"
+          type="number"
         />
       </div>
     );
