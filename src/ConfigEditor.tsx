@@ -45,6 +45,16 @@ export class ConfigEditor extends PureComponent<Props, State> {
     });
   };
 
+  //2.Add a event listener for the new option.
+  onResolutionChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { onOptionsChange, options } = this.props;
+    const jsonData = {
+      ...options.jsonData,
+      resolution: parseFloat(event.target.value),
+    };
+    onOptionsChange({ ...options, jsonData });
+  };
+  
   render() {
     const { options } = this.props;
     const { jsonData, secureJsonFields } = options;
@@ -60,6 +70,12 @@ export class ConfigEditor extends PureComponent<Props, State> {
             onChange={this.onPathChange}
             value={jsonData.path || ''}
             placeholder="json field returned to frontend"
+          />
+          <FormField
+            label="Resolution"
+            onChange={this.onResolutionChange}
+            value={jsonData.resolution || ''}
+            placeholder="Enter a number"
           />
         </div>
 

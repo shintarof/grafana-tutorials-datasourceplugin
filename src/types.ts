@@ -20,6 +20,8 @@ export const defaultQuery: Partial<MyQuery> = {
  */
 export interface MyDataSourceOptions extends DataSourceJsonData {
   path?: string;
+  //1.Add a new number property called resolution to the options model.
+  resolution?: number;
 }
 
 /**
