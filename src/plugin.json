@@ -1,0 +1,35 @@
+{
+  "type": "datasource",
+  "name": "grafana-tutorials-datasourceplugin",
+  "id": "dev-grafana-tutorials-datasourceplugin",
+  "metrics": true,
+  "info": {
+    "description": "",
+    "author": {
+      "name": "shintarof",
+      "url": ""
+    },
+    "keywords": [],
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "links": [
+      {
+        "name": "Website",
+        "url": "https://github.com/grafana/simple-datasource"
+      },
+      {
+        "name": "License",
+        "url": "https://github.com/grafana/simple-datasource/blob/master/LICENSE"
+      }
+    ],
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
+  },
+  "dependencies": {
+    "grafanaVersion": "6.5.x",
+    "plugins": []
+  }
+}
